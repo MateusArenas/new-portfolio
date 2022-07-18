@@ -33,10 +33,10 @@ const Home: NextPage = () => {
                 </div>
               </div>
               <div className="col-12 col-md-6">
-                <div className="w-100">
-                  <Thumbnail />
-                </div>
-                {/* <img src="..." className="img-fluid" alt="..." /> */}
+               
+                <img src="/images/pic.png" className="img-fluid" alt="..." />
+
+                {/* <Image src="/images/pic.png" className="img-fluid" /> */}
               </div>
         </div>
         </div>

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const Thumbnail: React.FC<any> = (props) => (
+const SvgComponent: React.FC<any> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -137,4 +137,4 @@ const Thumbnail: React.FC<any> = (props) => (
   </svg>
 )
 
-export default Thumbnail
+export default SvgComponent
