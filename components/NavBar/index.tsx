@@ -2,8 +2,8 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 function NavBar() {
   return (
-    <Navbar className='border-bottom border-light border-light' sticky={'top'} collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar sticky={'top'} collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container >
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -30,6 +30,7 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <hr className="w-100 bg-light opacity-10 m-0 position-absolute bottom-0"/>
     </Navbar>
   );
 }
