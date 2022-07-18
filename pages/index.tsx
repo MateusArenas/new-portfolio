@@ -5,7 +5,7 @@ import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import Thumbnail from '../components/Thumbnail'
 import styles from '../styles/Home.module.css'
-import { FaFacebook, FaTwitch, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitch, FaInstagram, FaArtstation } from 'react-icons/fa';
 
 const Home: NextPage = () => {
   return (
@@ -28,14 +28,14 @@ const Home: NextPage = () => {
               <div className="col-12 col-md-6 order-2 order-sm-1">
                 <div className="row justify-content-start">
                   <div className="card border-0 bg-transparent text-white">
-                    <div className="card-header bg-transparent border-0">
+                    <div className="card-header bg-transparent border-0 app-text-primary">
                       Mateus Arenas
                     </div>
                     <div className="card-body">
                       <h1 className="card-title">The Simple, Clean Designer</h1>
                       <p className="card-text">Agency provides a full service range including technical skills, design, business understanding.</p>
                       <Link href={"#"}>
-                        <a className="btn btn-primary">See My Work</a>
+                        <a className="btn btn-primary app-bg-primary border-0">See My Work</a>
                       </Link>
                     </div>
                   </div>
@@ -44,8 +44,8 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="container py-5">
-          <div className="text-center mb-4">Service</div>
+      <div className="container py-4 mt-5">
+          <div className="text-center mb-4 app-text-primary">Service</div>
           <h2 className="text-center">How I Can Help You With</h2>
 
           <div className="row align-items-center mt-5">
@@ -53,27 +53,96 @@ const Home: NextPage = () => {
             <div className="col-12 col-md-6">
               <div className="card p-4">
                 <div className="card-body">
-                  <h3 className="card-title">Design</h3>
+                  <div className='d-flex flex-row align-items-center'>
+                    <span className="app-icon-btn rounded-circle">
+                      <FaArtstation />
+                    </span>
+                    <h3 className="card-title p-4">
+                      Design
+                    </h3>
+                  </div>
                   <p className="card-text">Agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-                  <Link href={"#"}><a className="btn btn-primary">Learn More</a></Link>
+                  <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Learn More</a></Link>
                 </div>
               </div>
             </div>
             <div className="col-12 col-md-6">
               <div className="card p-4">
                 <div className="card-body">
-                  <h3 className="card-title">Design</h3>
+                <div className='d-flex flex-row align-items-center'>
+                    <span className="app-icon-btn rounded-circle">
+                      <FaArtstation />
+                    </span>
+                    <h3 className="card-title p-4">
+                      Design
+                    </h3>
+                  </div>
                   <p className="card-text">Agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-                  <Link href={"#"}><a className="btn btn-primary">Learn More</a></Link>
+                  <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Learn More</a></Link>
                 </div>
               </div>
             </div>
 
 
           </div>
-          <div className="row text-center align-items-center py-4">
-            <p className=''>Want more service? <span>Explore Now</span></p>
+          <div className="row text-center align-items-center py-4 mt-5">
+            <p className=''>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p>
           </div>
+      </div>
+
+      <div className="container-fluid bg-dark">
+        <div className="container py-5">
+
+          <div className="row py-5 align-items-center">
+            <div className="col-12 col-md-6">
+              <p className='app-text-primary'>Portfolio</p>
+              <h2 className='text-white'>Latest Work</h2>
+            </div>
+            <div className="col-12 col-md-6">
+              <button type="button" className="btn btn-outline-light float-end">Explore More</button>
+            </div>
+          </div>
+
+          <div className="row py-4">
+
+            <div className="col-12 col-md-4 p-2">
+              <div className="card bg-dark text-white">
+                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
+                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
+                  <div>
+                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
+                  </div>
+                  <h3 className="card-title">Card title</h3>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-4 p-2">
+              <div className="card bg-dark text-white">
+                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
+                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
+                  <div>
+                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
+                  </div>
+                  <h3 className="card-title">Card title</h3>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-4 p-2">
+              <div className="card bg-dark text-white">
+                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
+                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
+                  <div>
+                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
+                  </div>
+                  <h3 className="card-title">Card title</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
 
 

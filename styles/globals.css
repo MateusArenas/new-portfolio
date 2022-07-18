@@ -14,3 +14,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.app-bg-primary {
+  background-color: #EF6D58 !important;
+}
+
+.app-text-primary {
+  color: #EF6D58 !important;
+}
+
+.app-icon-btn {
+  background-color: #EF6D58;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
