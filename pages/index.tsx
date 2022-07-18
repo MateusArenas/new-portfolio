@@ -34,9 +34,9 @@ const Home: NextPage = () => {
               </div>
               <div className="col-12 col-md-6">
                
-                <img src="/images/pic.png" className="img-fluid" alt="..." />
+                {/* <img src="/images/pic.png" className="img-fluid" alt="..." /> */}
 
-                {/* <Image src="/images/pic.png" className="img-fluid" /> */}
+                <Image src="/images/pic.png" className="img-fluid" width={569} height={555} />
               </div>
         </div>
         </div>
