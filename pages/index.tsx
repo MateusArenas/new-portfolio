@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/Link'
 import NavBar from '../components/NavBar'
 import Thumbnail from '../components/Thumbnail'
 import styles from '../styles/Home.module.css'
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
                   <div className="card-body">
                     <h1 className="card-title">The Simple, Clean Designer</h1>
                     <p className="card-text">Agency provides a full service range including technical skills, design, business understanding.</p>
-                    <a href="#" className="btn btn-primary">See My Work</a>
+                    <a className="btn btn-primary">See My Work</a>
                   </div>
                 </div>
               </div>
@@ -54,7 +55,7 @@ const Home: NextPage = () => {
                   <div className="card-body">
                     <h3 className="card-title">Design</h3>
                     <p className="card-text">Agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-                    <a href="#" className="btn btn-primary">Learn More</a>
+                    <a className="btn btn-primary">Learn More</a>
                   </div>
                 </div>
               </div>
@@ -64,7 +65,7 @@ const Home: NextPage = () => {
                   <div className="card-body">
                     <h3 className="card-title">Design</h3>
                     <p className="card-text">Agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
-                    <a href="#" className="btn btn-primary">Learn More</a>
+                    <a className="btn btn-primary">Learn More</a>
                   </div>
                 </div>
               </div>
@@ -90,35 +91,35 @@ const Home: NextPage = () => {
             <div className="col-6 col-lg-3 offset-lg-1 mb-3">
               <h5 className="mb-4">Menu</h5>
               <ul className="list-unstyled">
-                <li className="mb-2"><a href="#">About</a></li>
-                <li className="mb-2"><a href="#">Services</a></li>
-                <li className="mb-2"><a href="#">Blog</a></li>
-                <li className="mb-2"><a href="#">Contact</a></li>
+                <li className="mb-2"><a>About</a></li>
+                <li className="mb-2"><a>Services</a></li>
+                <li className="mb-2"><a>Blog</a></li>
+                <li className="mb-2"><a>Contact</a></li>
               </ul>
             </div>
             <div className="col-6 col-lg-3 mb-3">
               <h5 className="mb-4">Service</h5>
               <ul className="list-unstyled">
-                <li className="mb-2"><a href="#">Design</a></li>
-                <li className="mb-2"><a href="#">Devlopment</a></li>
-                <li className="mb-2"><a href="#">Marketing</a></li>
-                <li className="mb-2"><a href="#">See More</a></li>
+                <li className="mb-2"><a>Design</a></li>
+                <li className="mb-2"><a>Devlopment</a></li>
+                <li className="mb-2"><a>Marketing</a></li>
+                <li className="mb-2"><a>See More</a></li>
               </ul>
             </div>
             <div className="col-6 col-lg-2 mb-3">
               <ul className="list-unstyled row">
                 <li className="mb-2 col-4">
-                  <a href="#">
+                  <a>
                     <FaFacebook size={24*2} />
                   </a>
                 </li>
                 <li className="mb-2 col-4">
-                  <a href="#">
+                  <a>
                     <FaTwitch size={24*2} />
                   </a>
                 </li>
                 <li className="mb-2 col-4">
-                  <a href="#">
+                  <a>
                     <FaInstagram size={24*2} />
                   </a>
                 </li>
@@ -133,8 +134,8 @@ const Home: NextPage = () => {
             </div>
 
             <div className="col-auto">
-                <a href="#" className="stretched-link me-5">Terms of Use</a>
-                <a href="#" className="stretched-link me-5">Privacy Policy</a>
+                <a className="stretched-link me-5">Terms of Use</a>
+                <a className="stretched-link me-5">Privacy Policy</a>
             </div>
 
           </div>
