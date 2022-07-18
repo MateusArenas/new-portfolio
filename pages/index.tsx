@@ -16,7 +16,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar />
+      <div className="col-12">
+        <NavBar />
+      </div>
+
+      
 
       <div className="col-12 bg-dark py-5">
           <div className="container">
@@ -131,13 +135,13 @@ const Home: NextPage = () => {
           <hr className="border-2 opacity-50"/>
           <div className="row mt-5">
             
-            <div className="col ">
+            <div className="col">
               <p>Copyright © 2022 Laaqiq. All Rights Reserved.</p>
             </div>
 
-            <div className="col-auto">
-                <a className="stretched-link me-5">Terms of Use</a>
-                <a className="stretched-link me-5">Privacy Policy</a>
+            <div className="btn-group col-auto">
+                <a className="nav-link me-5">Terms of Use</a>
+                <a className="nav-link me-5">Privacy Policy</a>
             </div>
 
           </div>
