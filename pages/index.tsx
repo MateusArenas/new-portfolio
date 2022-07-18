@@ -22,8 +22,8 @@ const Home: NextPage = () => {
             <div className="row align-items-center px-md-5">
               <div className="col-12 col-md-6">
                 <div className="row justify-content-start">
-                  <div className="card bg-dark text-white">
-                    <div className="card-header">
+                  <div className="card border-0 bg-transparent text-white">
+                    <div className="card-header bg-transparent border-0">
                       Mateus Arenas
                     </div>
                     <div className="card-body">
