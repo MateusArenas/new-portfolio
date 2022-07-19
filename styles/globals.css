@@ -19,6 +19,17 @@ a {
   background-color: #EF6D58 !important;
 }
 
+.app-border-primary {
+  border-width: 1px !important;
+  border-color: #EF6D58 !important;
+  border-radius: 4px !important;
+}
+
+.app-border-primary:hover {
+  background-color: #EF6D58 !important;
+  color: white !important;
+}
+
 .app-text-primary {
   color: #EF6D58 !important;
 }

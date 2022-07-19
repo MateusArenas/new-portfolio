@@ -3,9 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import NavBar from '../components/NavBar'
-import Thumbnail from '../components/Thumbnail'
 import styles from '../styles/Home.module.css'
-import { FaFacebook, FaTwitch, FaInstagram, FaArtstation } from 'react-icons/fa';
+import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope } from 'react-icons/fa';
 
 const Home: NextPage = () => {
   return (
@@ -55,7 +54,7 @@ const Home: NextPage = () => {
                 <div className="card-body">
                   <div className='d-flex flex-row align-items-center'>
                     <span className="app-icon-btn rounded-circle">
-                      <FaArtstation />
+                      <FaPalette />
                     </span>
                     <h3 className="card-title p-4">
                       Design
@@ -71,7 +70,7 @@ const Home: NextPage = () => {
                 <div className="card-body">
                 <div className='d-flex flex-row align-items-center'>
                     <span className="app-icon-btn rounded-circle">
-                      <FaArtstation />
+                      <FaBriefcase />
                     </span>
                     <h3 className="card-title p-4">
                       Design
@@ -139,6 +138,105 @@ const Home: NextPage = () => {
                   <h3 className="card-title">Card title</h3>
                 </div>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div className="container my-5">
+        <div className="row py-4 align-items-center">
+          <div className="col-12 col-md-6">
+            <Image src={'/images/pic-about.png'} width={529} height={521} />
+          </div>
+          <div className="col-12 col-md-6">
+            <div className="card border-0 bg-transparent">
+              <div className="card-header bg-transparent border-0 app-text-primary">
+                Mateus Arenas
+              </div>
+              <div className="card-body">
+                <h1 className="card-title">Professional <br/> Web Designer</h1>
+                <h5>Provides a full service range</h5>
+                <p className="card-text">Ability to put themselves in the merchant's shoes. It is meant to partner on the long run, and work as an extension of the merchant's team.</p>
+                <Link href={"#"}>
+                  <a className="btn app-text-primary app-border-primary">About me</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="bg-dark my-5">
+        <div className="container py-5">
+          <div className="row py-5 align-items-center">
+
+            <div className="col-12 col-md-6 p-3 p-md-5 order-md-2 order-sm-1">
+              <div className="card border-0 text-white bg-transparent">
+                <div className="card-header bg-transparent border-0 app-text-primary">
+                  CONTACT
+                </div>
+                <div className="card-body mb-4">
+                  <h1 className="card-title">Contact Me</h1>
+                  <p className="card-text">A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
+                </div>
+                <ul className="list-group list-group-flush border-0 mb-5">
+                  <li className="list-group-item bg-transparent text-white border-0 mb-3">
+                    <span className="app-icon-btn rounded-circle me-3">
+                      <FaLocationArrow />
+                    </span>
+                    2247 Lunetta Street, TX 76301
+                  </li>
+                  <li className="list-group-item bg-transparent text-white border-0 mb-3">
+                    <span className="app-icon-btn rounded-circle me-3">
+                      <FaPhone />
+                    </span>
+                    +1 (234) 567-89-00
+                  </li>
+                  <li className="list-group-item bg-transparent text-white border-0 mb-3">
+                    <span className="app-icon-btn rounded-circle me-3">
+                      <FaEnvelope />
+                    </span>
+                    info@agency.com
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 p-3 p-md-5 order-md-1 order-sm-2">
+              <form className="row g-3 bg-white p-4 py-5 rounded">
+
+                <div className="col-12">
+                  <h3>Get In Touch</h3>
+                </div>
+
+                <div className="col-12 form-floating mb-3">
+                  <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+                  <label className='ps-3' htmlFor="floatingInput">Email address</label>
+                </div>
+                
+                <div className="col-12 form-floating">
+                  <select className="form-select" id="floatingSelectGrid">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <label className='ps-3' htmlFor="floatingSelectGrid">Works with selects</label>
+                </div>
+
+                <div className="col-12 form-floating">
+                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: 100 }} />
+                  <label className='ps-3' htmlFor="floatingTextarea2">Comments</label>
+                </div>
+
+                <div className="col-12">
+                  <button type="submit" className="btn app-bg-primary text-white float-end mt-4">Submit Now</button>
+                </div>
+
+              </form>
             </div>
 
           </div>
