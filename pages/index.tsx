@@ -52,7 +52,7 @@ const Home: NextPage = () => {
             <div className="col-12 col-md-6">
               <div className="card p-4">
                 <div className="card-body">
-                  <div className='d-flex flex-row align-items-center'>
+                  <div className="d-flex flex-row align-items-center">
                     <span className="app-icon-btn rounded-circle">
                       <FaPalette />
                     </span>
@@ -68,7 +68,7 @@ const Home: NextPage = () => {
             <div className="col-12 col-md-6">
               <div className="card p-4">
                 <div className="card-body">
-                <div className='d-flex flex-row align-items-center'>
+                <div className="d-flex flex-row align-items-center">
                     <span className="app-icon-btn rounded-circle">
                       <FaBriefcase />
                     </span>
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
 
           </div>
           <div className="row text-center align-items-center py-4 mt-5">
-            <p className=''>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p>
+            <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p>
           </div>
       </div>
 
@@ -94,8 +94,8 @@ const Home: NextPage = () => {
 
           <div className="row py-5 align-items-center">
             <div className="col-12 col-md-6">
-              <p className='app-text-primary'>Portfolio</p>
-              <h2 className='text-white'>Latest Work</h2>
+              <p className="app-text-primary">Portfolio</p>
+              <h2 className="text-white">Latest Work</h2>
             </div>
             <div className="col-12 col-md-6">
               <button type="button" className="btn btn-outline-light float-end">Explore More</button>
@@ -158,7 +158,7 @@ const Home: NextPage = () => {
               <div className="card-body">
                 <h1 className="card-title">Professional <br/> Web Designer</h1>
                 <h5>Provides a full service range</h5>
-                <p className="card-text">Ability to put themselves in the merchant's shoes. It is meant to partner on the long run, and work as an extension of the merchant's team.</p>
+                <p className="card-text">Ability to put themselves in the merchants shoes. It is meant to partner on the long run, and work as an extension of the merchants team.</p>
                 <Link href={"#"}>
                   <a className="btn app-text-primary app-border-primary">About me</a>
                 </Link>
@@ -214,7 +214,7 @@ const Home: NextPage = () => {
 
                 <div className="col-12 form-floating mb-3">
                   <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-                  <label className='ps-3' htmlFor="floatingInput">Email address</label>
+                  <label className="ps-3" htmlFor="floatingInput">Email address</label>
                 </div>
                 
                 <div className="col-12 form-floating">
@@ -224,12 +224,12 @@ const Home: NextPage = () => {
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
-                  <label className='ps-3' htmlFor="floatingSelectGrid">Works with selects</label>
+                  <label className="ps-3" htmlFor="floatingSelectGrid">Works with selects</label>
                 </div>
 
                 <div className="col-12 form-floating">
                   <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: 100 }} />
-                  <label className='ps-3' htmlFor="floatingTextarea2">Comments</label>
+                  <label className="ps-3" htmlFor="floatingTextarea2">Comments</label>
                 </div>
 
                 <div className="col-12">
