@@ -12,7 +12,8 @@ else
   prtcl = 'https';
 
 const api = axios.create({
-  baseURL: `${prtcl}://${ip.address()}:3000/api`, 
+  // baseURL: `${prtcl}://${ip.address()}:3000/api`, 
+  baseURL: `https://mateusarenas.vercel.app/api`, 
   headers: {
     'Access-Control-Allow-Origin': '*',
     Connection: 'keep-alive',
