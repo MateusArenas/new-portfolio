@@ -5,8 +5,24 @@ import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
 import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope } from 'react-icons/fa';
+import api from '../services/api'
 
-const Home: NextPage = () => {
+import { IProject } from './api/projects'
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const { data } = await api.get('/projects');
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
+
+
+const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
+
+  console.log({ data });
+  
+
   return (
     <div className="container-fluid px-0">
       <Head>
@@ -21,7 +37,7 @@ const Home: NextPage = () => {
             <div className="row align-items-center px-md-5">
               <div className="col-12 col-md-6 order-1 order-sm-2">
                 <div className="row justify-content-end px-4">
-                  <Image src="/images/pic.png" className="img-fluid" width={569} height={555} />
+                  <Image alt='image-profile' src="/images/pic.png" className="img-fluid" width={569} height={555} />
                 </div>
               </div>
               <div className="col-12 col-md-6 order-2 order-sm-1">
@@ -44,8 +60,8 @@ const Home: NextPage = () => {
       </div>
 
       <div className="container py-4 mt-5">
-          <div className="text-center mb-4 app-text-primary">Service</div>
-          <h2 className="text-center">How I Can Help You With</h2>
+          <div className="text-center mb-4 app-text-primary">Habilidades</div>
+          <h2 className="text-center">Qualificações</h2>
 
           <div className="row align-items-center mt-5">
 
@@ -95,50 +111,41 @@ const Home: NextPage = () => {
           <div className="row py-5 align-items-center">
             <div className="col-12 col-md-6">
               <p className="app-text-primary">Portfolio</p>
-              <h2 className="text-white">Latest Work</h2>
+              <h2 className="text-white">Últimos projetos</h2>
             </div>
             <div className="col-12 col-md-6">
-              <button type="button" className="btn btn-outline-light float-end">Explore More</button>
+              <button type="button" className="btn btn-outline-light float-end">Veja Mais</button>
             </div>
           </div>
 
           <div className="row py-4">
+            {data?.map(item => (
+              <Link key={item?.title} passHref shallow href={item?.link}>
+                <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-3 p-2 text-decoration-none">
+                  <div className="card overflow-hidden bg-dark text-white w-100 h-100">
+                    {/* <div className='d-flex align-items-center justify-content-center bg-secondary rounded-end w-100 h-100 position-relative overflow-hidden' style={{ aspectRatio: "16/16" }}> */}
+                                      {/* <p className='text-white'>{item?._id}</p> */}
+                                      {/* <Image alt='product-img' src="/images/default-product.webp" objectFit="cover" layout="fill" width={1080} height={720} /> */}
+                                    {/* </div> */}
+                      <div className="row g-0 h-100 w-100" style={{ aspectRatio: "16/14" }}>
+                        <div className="col-6 position-relative">
+                          <Image alt={item?.title + '1'} src={item?.image1} className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
+                        </div>
+                        <div className="col-6 position-relative">
+                          <Image alt={item?.title + '2'} src={item?.image2} className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
+                        </div>
+                      </div>
 
-            <div className="col-12 col-md-4 p-2">
-              <div className="card bg-dark text-white">
-                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
-                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
-                  <div>
-                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
+                    <div className="card-body d-flex flex-column justify-content-end p-4">
+                      <div>
+                        <span className="badge rounded-pill bg-light text-dark p-2 mb-3">{item?.usage}</span>
+                      </div>
+                      <h5 className="card-title">{item?.title}</h5>
+                    </div>
                   </div>
-                  <h3 className="card-title">Card title</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-4 p-2">
-              <div className="card bg-dark text-white">
-                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
-                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
-                  <div>
-                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
-                  </div>
-                  <h3 className="card-title">Card title</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-4 p-2">
-              <div className="card bg-dark text-white">
-                <Image src="/images/bitmap.png" className="card-img rounded" width={448} height={576} />
-                <div className="card-img-overlay d-flex flex-column justify-content-end p-4">
-                  <div>
-                    <span className="badge rounded-pill bg-light text-dark p-2 mb-3">Designer</span>
-                  </div>
-                  <h3 className="card-title">Card title</h3>
-                </div>
-              </div>
-            </div>
+                </a>
+              </Link>
+            ))}
 
           </div>
         </div>
