@@ -5,13 +5,13 @@ import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
 import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope } from 'react-icons/fa';
-import axios from 'axios'
+import api from '../services/api'
 
 import { IProject } from './api/projects'
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const { data } = await axios.get('/projects');
+  const { data } = await api.get('/projects');
 
   // Pass data to the page via props
   return { props: { data } }
