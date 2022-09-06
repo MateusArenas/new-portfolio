@@ -47,10 +47,10 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                       Mateus Arenas
                     </div>
                     <div className="card-body">
-                      <h1 className="card-title">The Simple, Clean Designer</h1>
-                      <p className="card-text">Agency provides a full service range including technical skills, design, business understanding.</p>
-                      <Link href={"#"}>
-                        <a className="btn btn-primary app-bg-primary border-0">See My Work</a>
+                      <h1 className="card-title">Sobre e Objetivo</h1>
+                      <p className="card-text">Atualmente estou com grande foco em estudos na linguagem javascript em seus frameworks e libs apto a utilizar o conhecimento técnico obtido em estágios e juntamente com conhecimentos técnicos e graduação para desempenhar cargo de Desenvolvedor Full Stack.</p>
+                      <Link href={"#projects"}>
+                        <a className="btn btn-primary app-bg-primary border-0">Veja meus projetos</a>
                       </Link>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           </div>
       </div>
 
-      <div className="container-fluid bg-dark">
+      <div id='projects' className="container-fluid bg-dark">
         <div className="container py-5">
 
           <div className="row py-5 align-items-center">
@@ -118,7 +118,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
             </div>
           </div>
 
-          <div className="row py-4">
+          <div  className="row py-4">
             {data?.map(item => (
               <Link key={item?.title} passHref shallow href={item?.link}>
                 <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-3 p-2 text-decoration-none">
@@ -155,7 +155,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
       <div className="container my-5">
         <div className="row py-4 align-items-center">
           <div className="col-12 col-md-6">
-            <Image src={'/images/pic-about.png'} width={529} height={521} />
+            <Image alt='pro' src={'/images/pic-about.png'} width={529} height={521} />
           </div>
           <div className="col-12 col-md-6">
             <div className="card border-0 bg-transparent">
