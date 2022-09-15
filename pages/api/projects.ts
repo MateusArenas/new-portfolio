@@ -16,6 +16,22 @@ export default function handler(
 ) {
   res.status(200).json([
     { 
+        "image1": "/images/insta-delivery.gif",
+        "image2": "/images/insta-delivery.gif",
+        "link": "https://github.com/MateusArenas/insta-delivery",
+        "title": "Insta Delivery",
+        "usage": "Next JS",
+        "icon": "fab fa-node"
+    },
+    { 
+        "image1": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
+        "link": "https://github.com/MateusArenas/php-page-auth",
+        "title": "PHP Page Example",
+        "usage": "PHP and Sqlite",
+        "icon": "fab fa-node"
+    },
+    { 
         "image1": "/images/whatsapp.gif",
         "image2": "/images/whatsapp.gif",
         "link": "https://github.com/MateusArenas/whatsapp-ui",
@@ -39,21 +55,5 @@ export default function handler(
         "usage": "Node JS",
         "icon": "fab fa-node"
     },
-    { 
-        "image1": "/images/insta-delivery.gif",
-        "image2": "/images/insta-delivery.gif",
-        "link": "https://github.com/MateusArenas/insta-delivery",
-        "title": "Insta Delivery",
-        "usage": "Next JS",
-        "icon": "fab fa-node"
-    },
-    { 
-        "image1": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
-        "image2": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
-        "link": "https://github.com/MateusArenas/php-page-auth",
-        "title": "PHP page example",
-        "usage": "PHP, HTML & CSS and Bootstrap",
-        "icon": "fab fa-node"
-    }
   ])
 }
