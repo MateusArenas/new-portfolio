@@ -46,6 +46,14 @@ export default function handler(
         "title": "Insta Delivery",
         "usage": "Next JS",
         "icon": "fab fa-node"
+    },
+    { 
+        "image1": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
+        "link": "https://github.com/MateusArenas/php-page-auth",
+        "title": "PHP page example",
+        "usage": "PHP, HTML & CSS and Bootstrap",
+        "icon": "fab fa-node"
     }
   ])
 }
