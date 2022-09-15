@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
-import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt } from 'react-icons/fa';
 import api from '../services/api'
 
 import { IProject } from './api/projects'
@@ -136,16 +136,23 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                         </div>
                       </div>
 
-                    <div className="card-body d-flex flex-column justify-content-end p-4">
+                    <div className="card-body d-flex flex-column justify-content-end p-3 py-4">
                       <div className="d-flex flex-row justify-content-between align-items-center mb-3">
                         <div>
                           <span className="badge rounded-pill bg-light text-dark p-2">{item?.usage}</span>
                         </div>
-                        <Link passHref shallow href={item?.github}>
-                          <a target="_blank">
-                            <FaGithub size={24} />
-                          </a>
-                        </Link>
+                        <div className="d-flex flex-row justify-content-between align-items-center">
+                          <Link passHref shallow href={item?.github || ""}>
+                            <a className="text-white me-3" target="_blank">
+                              <FaGithub size={20} />
+                            </a>
+                          </Link>
+                          <Link passHref shallow href={item?.link || ""}>
+                            <a className="text-white" target="_blank">
+                              <FaExternalLinkAlt size={20} />
+                            </a>
+                          </Link>
+                        </div>
                       </div>
                       <h5 className="card-title">{item?.title}</h5>
                     </div>

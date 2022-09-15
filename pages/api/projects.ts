@@ -55,7 +55,7 @@ export default function handler(
     { 
         "image1": "/images/top.gif",
         "image2": "/images/bottom.gif",
-        "link": "https://github.com/MateusArenas/portfolio",
+        "link": "https://mateusarenas.github.io/portfolio",
         "github": "https://github.com/MateusArenas/portfolio",
         "title": "Portfólio Builder",
         "usage": "Node JS",
