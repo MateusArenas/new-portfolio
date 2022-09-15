@@ -5,6 +5,7 @@ export type IProject = {
   image1: string
   image2: string
   link: string
+  github: string
   title: string
   usage: string
   icon: string
@@ -19,6 +20,7 @@ export default function handler(
         "image1": "/images/insta-delivery.gif",
         "image2": "/images/insta-delivery.gif",
         "link": "https://github.com/MateusArenas/insta-delivery",
+        "github": "https://github.com/MateusArenas/insta-delivery",
         "title": "Insta Delivery",
         "usage": "Next JS",
         "icon": "fab fa-node"
@@ -27,6 +29,7 @@ export default function handler(
         "image1": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
         "image2": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
         "link": "https://github.com/MateusArenas/php-page-auth",
+        "github": "https://github.com/MateusArenas/php-page-auth",
         "title": "PHP Page Example",
         "usage": "PHP and Sqlite",
         "icon": "fab fa-node"
@@ -35,6 +38,7 @@ export default function handler(
         "image1": "/images/whatsapp.gif",
         "image2": "/images/whatsapp.gif",
         "link": "https://github.com/MateusArenas/whatsapp-ui",
+        "github": "https://github.com/MateusArenas/whatsapp-ui",
         "title": "Whatsapp Clone UI",
         "usage": "React Native",
         "icon": "fab fa-react"
@@ -43,6 +47,7 @@ export default function handler(
         "image1": "/images/peekandpush.gif",
         "image2": "/images/sharedelement.gif",
         "link": "https://github.com/MateusArenas/whatsapp-ui",
+        "github": "https://github.com/MateusArenas/whatsapp-ui",
         "title": "Shared & Options",
         "usage": "React Native",
         "icon": "fab fa-react"
@@ -51,6 +56,7 @@ export default function handler(
         "image1": "/images/top.gif",
         "image2": "/images/bottom.gif",
         "link": "https://github.com/MateusArenas/portfolio",
+        "github": "https://github.com/MateusArenas/portfolio",
         "title": "Portfólio Builder",
         "usage": "Node JS",
         "icon": "fab fa-node"
