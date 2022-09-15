@@ -19,7 +19,7 @@ export default function handler(
     { 
         "image1": "/images/insta-delivery.gif",
         "image2": "/images/insta-delivery.gif",
-        "link": "https://github.com/MateusArenas/insta-delivery",
+        "link": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
         "title": "Insta Delivery",
         "usage": "Next JS",
@@ -28,7 +28,7 @@ export default function handler(
     { 
         "image1": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
         "image2": "https://raw.githubusercontent.com/MateusArenas/php-page-auth/main/show.gif",
-        "link": "https://github.com/MateusArenas/php-page-auth",
+        "link": "https://php-page-auth.vercel.app/",
         "github": "https://github.com/MateusArenas/php-page-auth",
         "title": "PHP Page Example",
         "usage": "PHP and Sqlite",
