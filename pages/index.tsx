@@ -47,8 +47,8 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                       Mateus Arenas
                     </div>
                     <div className="card-body">
-                      <h1 className="card-title">Sobre e Objetivo</h1>
-                      <p className="card-text">Atualmente estou com grande foco em estudos na linguagem javascript em seus frameworks e libs apto a utilizar o conhecimento técnico obtido em estágios e juntamente com conhecimentos técnicos e graduação para desempenhar cargo de Desenvolvedor Full Stack.</p>
+                      <h1 className="card-title">Sobre</h1>
+                      <p className="card-text">Sou um Desenvolvedor de Sistemas Web e Mobile, tendo como foco principal a linguagem Javascript/ Typescript e o Freamework React Native. Faço construções de APIs utilizando Node Js e MongoDB. Atualmente trabalho com Freelancer e estou em fase de conclusão de estudos em Analise e Desenvolvedor de Sistemas.</p>
                       <Link href={"#projects"}>
                         <a className="btn btn-primary app-bg-primary border-0">Veja meus projetos</a>
                       </Link>
@@ -119,9 +119,9 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           </div>
 
           <div  className="row py-4">
-            {data?.map(item => (
+            {data?.slice(0, 4)?.map(item => (
               <Link key={item?.title} passHref shallow href={item?.link}>
-                <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-3 p-2 text-decoration-none">
+                <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-6 col-lg-3 p-2 text-decoration-none">
                   <div className="card overflow-hidden bg-dark text-white w-100 h-100">
                     {/* <div className='d-flex align-items-center justify-content-center bg-secondary rounded-end w-100 h-100 position-relative overflow-hidden' style={{ aspectRatio: "16/16" }}> */}
                                       {/* <p className='text-white'>{item?._id}</p> */}
