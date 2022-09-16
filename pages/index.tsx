@@ -35,7 +35,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
 
         <NavBar />
 
-        <div className="container-fluid bg-dark py-5">
+        <div className="container-fluid bg-dark pt-0 pt-lg-5 pb-5">
             <div className="row align-items-center px-md-5">
               <div className="col-12 col-md-6 order-1 order-sm-2">
                 <div className="row justify-content-end px-4">
