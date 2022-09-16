@@ -26,7 +26,7 @@ export async function getServerSideProps() {
   return { props: { pinneds } }
 }
 
-const Home: NextPage<{ data: IProject[] }> = ({ pinneds }) => {
+const Home: NextPage<{ data:? IProject[], pinneds: any[] }> = ({ pinneds }) => {
 
   const [showMoreProjects, setShowMoreProjects] = React.useState(false);
 
