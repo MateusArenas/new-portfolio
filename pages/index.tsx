@@ -8,21 +8,27 @@ import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLoca
 import { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
 
 import api from '../services/api'
+import axios from 'axios'
+import { useForm } from "react-hook-form";
 
 import { IProject } from './api/projects'
 import { FormEvent } from 'react'
+import React from 'react'
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const { data } = await api.get('/projects');
+  // const { data } = await api.get('/projects');
+  // const { data } = await axios.get('https://api.github.com/users/mateusarenas');
+  // const { data: repos } = await axios.get('https://api.github.com/users/mateusarenas/repos');
+  const { data: pinneds } = await axios.get("https://gh-pinned-repos.egoist.dev/?username=mateusarenas");
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { pinneds } }
 }
 
-import { useForm } from "react-hook-form";
+const Home: NextPage<{ data: IProject[] }> = ({ pinneds }) => {
 
-const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
+  const [showMoreProjects, setShowMoreProjects] = React.useState(false);
 
 
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<{ email: string, subject: string, message: string }>();
@@ -95,8 +101,9 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           </div>
 
           <div  className="row py-4">
-            {data?.slice(0, 4)?.map(item => (
-              <Link key={item?.title} passHref shallow href={item?.link}>
+            {/* {repos?.slice(0, 4)?.map(item => ( */}
+            {pinneds?.slice(0, showMoreProjects ? pinneds.length : 4)?.map(item => (
+              <Link key={item?.repo} passHref shallow href={item?.website || item?.link}>
                 <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-6 col-lg-3 p-2 text-decoration-none">
                   <div className="card overflow-hidden bg-light text-dark w-100 h-100">
                     {/* <div className='d-flex align-items-center justify-content-center bg-secondary rounded-end w-100 h-100 position-relative overflow-hidden' style={{ aspectRatio: "16/16" }}> */}
@@ -105,32 +112,43 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                                     {/* </div> */}
                       <div className="row g-0 h-100 w-100" style={{ aspectRatio: "16/14" }}>
                         <div className="col-6 position-relative">
-                          <Image alt={item?.title + '1'} src={item?.image1} className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
+                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-primary.gif`} alt={item?.title + '1'} 
+                            
+                            // onError={function (e) {
+                            //   console.log({ e });
+                            //   // e.target.src = `https://raw.githubusercontent.com/${item?.full_name}/main/show.gif`;
+                            //   // this?.src='https://php-page-auth.vercel.app/images/banner.png';
+                            // }}
+                            className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} 
+                          />
                         </div>
                         <div className="col-6 position-relative">
-                          <Image alt={item?.title + '2'} src={item?.image2} className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
+                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-secondary.gif`}
+                          alt={item?.repo + '2'} 
+                          className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
                         </div>
                       </div>
 
                     <div className="card-body d-flex flex-column justify-content-end p-3 py-4">
                       <div className="d-flex flex-row justify-content-between align-items-center mb-3">
                         <div>
-                          <span className="badge rounded-pill bg-light border text-dark p-2">{item?.usage}</span>
+                          <span style={{ backgroundColor: item?.languageColor }} className="badge rounded-pill border text-white p-2">{item?.language || item?.topics?.join(", ")}</span>
                         </div>
                         <div className="d-flex flex-row justify-content-between align-items-center">
-                          <Link passHref shallow href={item?.github || ""}>
+                          <Link passHref shallow href={item?.link || ""}>
                             <a className="text-dark me-3" target="_blank">
                               <FaGithub size={20} />
                             </a>
                           </Link>
-                          <Link passHref shallow href={item?.link || ""}>
+                          <Link passHref shallow href={item?.website || ""}>
                             <a className="text-dark" target="_blank">
                               <FaExternalLinkAlt size={20} />
                             </a>
                           </Link>
                         </div>
                       </div>
-                      <h5 className="card-title">{item?.title}</h5>
+                      <h5 className="card-title">{item?.repo}</h5>
+                      <p className="text-muted">{item?.description}</p>
                     </div>
                   </div>
                 </a>
@@ -141,7 +159,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           
           <div className="row mt-4">
             <div className="col-12 text-center">
-              <button type="button" className="btn btn-outline-dark">Veja Mais</button>
+              <button onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">{showMoreProjects ? "Esconder" : "Veja Mais"}</button>
             </div>
           </div>
         </div>
@@ -359,9 +377,9 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
             <div className="col-6 col-lg-2 mb-3">
               <ul className="list-unstyled row">
                 <li className="mb-2 pe-2 col-4">
-                  <Link passHref href="https://www.facebook.com/mateus.arenas.3">
+                  <Link passHref href="https://www.instagram.com/arenas_mat/">
                     <a className='text-white'>
-                      <FaFacebook size={24*1.8} />
+                      <FaInstagram size={24*1.8} />
                     </a>
                   </Link>
                 </li>
@@ -373,9 +391,9 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                   </Link>
                 </li>
                 <li className="mb-2 pe-2 col-4">
-                  <Link passHref href="https://www.instagram.com/arenas_mat/">
+                  <Link passHref href="https://github.com/MateusArenas">
                     <a className='text-white'>
-                      <FaInstagram size={24*1.8} />
+                      <FaGithub size={24*1.8} />
                     </a>
                   </Link>
                 </li>
