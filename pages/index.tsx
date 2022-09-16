@@ -47,7 +47,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
         <NavBar />
 
         <Link passHref href="https://api.whatsapp.com/send?phone=5511949123337">
-          <a className='position-fixed bottom-0 end-0 m-2 m-lg-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato da PontoÁgua no Whatsapp" id="wppLink" target="_blank" >
+          <a className='position-fixed bottom-0 end-0 m-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato da PontoÁgua no Whatsapp" id="wppLink" target="_blank" >
             <FaWhatsapp className='p-1' size={24*1.8} />
           </a>
         </Link>
