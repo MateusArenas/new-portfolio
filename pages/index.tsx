@@ -5,7 +5,8 @@ import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
 import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-import { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
+import Di, { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
+
 
 import api from '../services/api'
 import axios from 'axios'
@@ -14,13 +15,16 @@ import { useForm } from "react-hook-form";
 import { IProject } from './api/projects'
 import { FormEvent } from 'react'
 import React from 'react'
+
+import { content } from "../content";
+
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
   // const { data } = await api.get('/projects');
   // const { data } = await axios.get('https://api.github.com/users/mateusarenas');
   // const { data: repos } = await axios.get('https://api.github.com/users/mateusarenas/repos');
-  const { data: pinneds } = await axios.get("https://gh-pinned-repos.egoist.dev/?username=mateusarenas");
+  const { data: pinneds } = await axios.get(`https://gh-pinned-repos.egoist.dev/?username=${content.username}`);
 
   // Pass data to the page via props
   return { props: { pinneds } }
@@ -45,15 +49,15 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
         <meta property="og:image:width" content="460" />
         <meta property="og:image:height" content="460" /> 
 
-        <title>Mateus Arenas Gioio</title>
-        <meta name="description" content="Sou um Desenvolvedor de Sistemas Web e Mobile, tendo como foco principal a linguagem Javascript/ Typescript e o Freamework React Native. Faço construções de APIs utilizando Node Js e MongoDB. Atualmente trabalho com Freelancer e estou em fase de conclusão de estudos em Analise e Desenvolvedor de Sistemas." />
+        <title>{content.title}</title>
+        <meta name="description" content={content.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
         <NavBar />
 
-        <Link passHref href="https://api.whatsapp.com/send?phone=5511949123337">
-          <a className='position-fixed bottom-0 end-0 m-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato da PontoÁgua no Whatsapp" id="wppLink" target="_blank" >
+        <Link passHref href={`https://api.whatsapp.com/send?phone=${content.whatsapp}`}>
+          <a className='position-fixed bottom-0 end-0 m-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato no Whatsapp" id="wppLink" target="_blank" >
             <FaWhatsapp className='p-1' size={24*1.8} />
           </a>
         </Link>
@@ -75,7 +79,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                     </Link>
                     <div className="card-body">
                       <h1 className="card-title">Um pouco sobre min</h1>
-                      <p className="card-text">Sou um Desenvolvedor de Sistemas Web e Mobile, tendo como foco principal a linguagem Javascript/ Typescript e o Freamework React Native. Faço construções de APIs utilizando Node Js e MongoDB. Atualmente trabalho com Freelancer e estou em fase de conclusão de estudos em Analise e Desenvolvedor de Sistemas.</p>
+                      <p className="card-text">{content.description}</p>
                       <Link href={"#projects"}>
                         <a className="btn btn-primary app-bg-primary border-0 me-2">Projetos</a>
                       </Link>
@@ -167,44 +171,28 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
       </div>
 
       <div id='courses' className="container-fluid py-5 px-0 px-lg-5 bg-dark text-white py-4">
-          <div className="text-center mt-4 mb-4 app-text-primary">Habilidades</div>
-          <h2 className="text-center">Qualificações</h2>
+          <div className="text-center mt-4 mb-4 app-text-primary">{content.qualifications.info}</div>
+          <h2 className="text-center">{content.qualifications.title}</h2>
 
           <div className="row  gy-2 m-0 mt-5">
-              {[
-                {
-                  id: 1,
-                  title: "Javascript", icon: <DiJavascript1 size={32} />, bg: "#efd81d", tint: "black",
-                  about: "Typescript, node, Express, Adonis, Mongoose, Sequelize, Socket IO, React, React Native, Next",
-                },
-                {
-                  id: 2,
-                  title: "PHP", icon: <DiPhp size={42} />, bg: "#4b568b", tint: "black",
-                  about: "PDO, Phpmyadmin, Xammp, Laravel, Slim Framework ",
-                },
-                {
-                  id: 3,
-                  title: "Python", icon: <DiPython size={32} />, bg: "#006a9a", tint: "#ecc825",
-                  about: "Django, Flask, Mongoengine, Pymongo, JWT, Bcrypt",
-                },
-              ].map(item => (
-                <div key={item?.id} className="col-12 col-md-4">
+              {content.qualifications.items.map(item => (
+                <div key={item?.title} className="col-12 col-md-4">
                   <div className="card h-100 bg-dark p-4">
                     <div className="card-body">
                       <div className="d-flex flex-row align-items-center">
-                        <span className="app-icon position-relative rounded-circle" style={{ backgroundColor: item?.bg, color: item?.tint }}>
+                        <span className="app-icon position-relative rounded-circle" style={{ backgroundColor: item?.background, color: item?.color }}>
                           <span className='position-absolute'>
-                            {item?.icon}
+                            {item.icon}
                           </span>
                         </span>
                         <div className='p-4'>
                           <h3 className="card-title mb-0">
                           {item?.title}
                           </h3>
-                          <small className='text-muted'>Language</small>
+                          <small className='text-muted'>{item.info}</small>
                         </div>
                       </div>
-                      <p className="card-text">{item?.about}</p>
+                      <p className="card-text">{item?.description}</p>
                       {/* <small className="card-text">React Native/NextJS</small> */}
                       {/* <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Learn More</a></Link> */}
                     </div>
@@ -234,7 +222,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           </div>
           <div className="text-center py-4 mt-5">
             {/* <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p> */}
-            <button className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">Veja Mais</button>
+            <button className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">{content.qualifications.calltoaction.default}</button>
           </div>
       </div>
 
