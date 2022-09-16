@@ -104,7 +104,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
             {/* {repos?.slice(0, 4)?.map(item => ( */}
             {pinneds?.slice(0, showMoreProjects ? pinneds.length : 4)?.map(item => (
               <Link key={item?.repo} passHref shallow href={item?.website || item?.link}>
-                <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-6 col-lg-3 mb-2 p-2 text-decoration-none">
+                <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-6 col-lg-3 p-2 text-decoration-none">
                   <div className="card overflow-hidden bg-light text-dark w-100 h-100">
                     {/* <div className='d-flex align-items-center justify-content-center bg-secondary rounded-end w-100 h-100 position-relative overflow-hidden' style={{ aspectRatio: "16/16" }}> */}
                                       {/* <p className='text-white'>{item?._id}</p> */}
@@ -169,8 +169,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           <div className="text-center mt-4 mb-4 app-text-primary">Habilidades</div>
           <h2 className="text-center">Qualificações</h2>
 
-          <div className="row m-0 mt-5">
-
+          <div className="row  gy-2 m-0 mt-5">
               {[
                 {
                   id: 1,
