@@ -72,7 +72,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
         </div>
       </div>
 
-      <div id='projects' className="container-fluid">
+      <div id='projects' className="container-fluid bg-white">
         <div className="container pb-5">
 
           <div className="row py-5 align-items-center">
