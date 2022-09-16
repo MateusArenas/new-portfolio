@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
-import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
 
 import api from '../services/api'
@@ -40,6 +40,12 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
       </Head>
 
         <NavBar />
+
+        <Link passHref href="https://api.whatsapp.com/send?phone=5511949123337">
+          <a className='position-fixed bottom-0 end-0 m-2 m-lg-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato da PontoÁgua no Whatsapp" id="wppLink" target="_blank" >
+            <FaWhatsapp className='p-1' size={24*1.8} />
+          </a>
+        </Link>
 
         <div className="container-fluid bg-dark pt-0 pt-lg-5 pb-5">
             <div className="row align-items-center px-md-5">
@@ -140,7 +146,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           <div className="text-center mt-4 mb-4 app-text-primary">Habilidades</div>
           <h2 className="text-center">Qualificações</h2>
 
-          <div className="row mt-5">
+          <div className="row m-0 mt-5">
 
               {[
                 {
@@ -372,7 +378,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
             </div>
           </div>
           <hr className="border-2 opacity-50"/>
-          <div className="row mt-5">
+          <div className="row mt-5 mb-5 mb-lg-0">
             
             <div className="col-12 col-md-6">
               <p>Copyright © 2022 Mateus Arenas Gioio. All Rights Reserved.</p>
