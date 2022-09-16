@@ -222,7 +222,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           </div>
           <div className="text-center py-4 mt-5">
             {/* <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p> */}
-            <button className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">{content.qualifications.calltoaction.default}</button>
+            <button className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">{content.qualifications.btnmore.default}</button>
           </div>
       </div>
 

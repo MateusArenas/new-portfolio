@@ -9,7 +9,7 @@ export const content = {
   "qualifications": {
     "title": "Qualificações",
     "info": "Habilidades",
-    "calltoaction": { "default": "Veja Mais", "active": "Esconder" },
+    "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "items": [
       { 
         "title": "Javascript", 
