@@ -31,7 +31,7 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      <hr className="w-100 bg-light opacity-10 m-0 position-absolute bottom-0"/>
+      <hr style={{ opacity: .05 }} className="w-100 bg-light m-0 position-absolute bottom-0"/>
     </Navbar>
   );
 }
