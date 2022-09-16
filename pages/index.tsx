@@ -112,7 +112,8 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                                     {/* </div> */}
                       <div className="row g-0 h-100 w-100" style={{ aspectRatio: "16/14" }}>
                         <div className="col-6 position-relative">
-                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-primary.gif`} alt={item?.title + '1'} 
+                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-primary.gif`} 
+                          alt={''} 
                             
                             // onError={function (e) {
                             //   console.log({ e });
@@ -124,7 +125,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                         </div>
                         <div className="col-6 position-relative">
                           <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-secondary.gif`}
-                          alt={item?.repo + '2'} 
+                          alt={''} 
                           className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
                         </div>
                       </div>
