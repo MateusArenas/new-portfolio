@@ -4,12 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
-import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp } from 'react-icons/fa';
+import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp, FaLinkedin } from 'react-icons/fa';
 import { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
 
 import api from '../services/api'
 
 import { IProject } from './api/projects'
+import { FormEvent } from 'react'
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
@@ -19,11 +20,16 @@ export async function getServerSideProps() {
   return { props: { data } }
 }
 
+import { useForm } from "react-hook-form";
 
 const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
 
-  console.log({ data });
+
+  const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<{ email: string, subject: string, message: string }>();
   
+  async function onSubmit (data: { email: string, subject: string, message: string }) {
+    window.open(`mailto:${data.email}?subject=${data.subject}&body=${data.message}`);
+  }
 
   return (
     <div className="container-fluid px-0">
@@ -235,11 +241,11 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
             <div className="col-12 col-md-6 p-3 p-md-5 order-md-2 order-sm-1">
               <div className="card border-0 text-dark bg-transparent">
                 <div className="card-header bg-transparent border-0 app-text-primary">
-                  CONTACT
+                  CONTATO
                 </div>
                 <div className="card-body mb-4">
                   <h1 className="card-title">Me Contacte</h1>
-                  <p className="card-text">A digital agency is a business you hire to outsource your digital marketing efforts, instead of handling in-house.</p>
+                  <p className="card-text">Entre em contato para fins de contratação ou confecção de um projeto.</p>
                 </div>
                 <ul className="list-group list-group-flush border-0 mb-5">
                   {/* <li className="list-group-item bg-transparent border-0 mb-3">
@@ -249,46 +255,56 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
                     2247 Lunetta Street, TX 76301
                   </li> */}
                   <li className="list-group-item bg-transparent border-0 mb-3">
-                    <span className="app-icon-btn rounded-circle me-3">
-                      <FaPhone />
-                    </span>
-                    +55 (11) 94912-3337
+                    <Link passHref href="tel:5511949123337">
+                      <a className="text-decoration-none text-dark">
+                        <span className="app-icon-btn rounded-circle me-3">
+                          <FaPhone />
+                        </span>
+                      +55 (11) 94912-3337
+                      </a>
+                    </Link>
                   </li>
                   <li className="list-group-item bg-transparent border-0 mb-3">
-                    <span className="app-icon-btn rounded-circle me-3">
-                      <FaEnvelope />
-                    </span>
-                    mateusarenas97@gmail.com
+                    <Link passHref href="mailto:mateusarenas97@gmail.com">
+                      <a className="text-decoration-none text-dark">
+                        <span className="app-icon-btn rounded-circle me-3">
+                          <FaEnvelope />
+                        </span>
+                        mateusarenas97@gmail.com
+                      </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="col-12 col-md-6 p-3 p-md-5 order-md-1 order-sm-2">
-              <form className="row g-3 border bg-light p-4 py-5 rounded">
+              <form onSubmit={handleSubmit(onSubmit)} className="row g-3 border bg-light p-4 py-5 rounded">
 
                 <div className="col-12">
                   <h3>Envie uma mensagem</h3>
                 </div>
 
                 <div className="col-12 form-floating mb-3">
-                  <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+                  <input id="floatingInput" type="email" className="form-control" placeholder="name@example.com" {...register("email", { required: true })} />
                   <label className="ps-3" htmlFor="floatingInput">Email</label>
+                  {errors.email && <span>É precisso adicionar um email</span>}
                 </div>
                 
                 <div className="col-12 form-floating">
-                  <select className="form-select" id="floatingSelectGrid">
-                    <option selected>Sobre um trabalho</option>
-                    <option value="1">Trabalho como front-end</option>
-                    <option value="2">Trabalho como back-end</option>
-                    <option value="3">TTrabalho como full-stack</option>
+                  <select className="form-select" id="floatingSelectGrid" {...register("subject", { required: true })}>
+                    <option selected value="Confecção de um projeto" >Confecção de um projeto</option>
+                    <option value="Contratação como front-end">Contratação como front-end</option>
+                    <option value="Contratação como back-end">Contratação como back-end</option>
+                    <option value="Contratação como full-stack">Contratação como full-stack</option>
                   </select>
                   <label className="ps-3" htmlFor="floatingSelectGrid">Selecione um assunto</label>
                 </div>
 
                 <div className="col-12 form-floating">
-                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: 100 }} />
+                  <textarea id="floatingTextarea2" className="form-control" placeholder="Leave a comment here" style={{ height: 100 }} {...register("message", { required: true })} />
                   <label className="ps-3" htmlFor="floatingTextarea2">Mensagem</label>
+                  {errors.message && <span>É precisso adicionar uma mensagem</span>}
                 </div>
 
                 <div className="col-12">
@@ -309,43 +325,48 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
             <div className="col-lg-3 mb-3">
               <a className="d-inline-flex align-items-center mb-2 text-white text-decoration-none" aria-label="Bootstrap">
                 {/* <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" className="d-block me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg> */}
-                <span className="fs-5">Personal</span>
+                <span className="fs-5">Mateus Arenas Gioio</span>
               </a>
             </div>
             <div className="col-6 col-lg-3 offset-lg-1 mb-3">
               <h5 className="mb-4">Menu</h5>
               <ul className="list-unstyled">
-                <li className="mb-2"><a>About</a></li>
-                <li className="mb-2"><a>Services</a></li>
-                <li className="mb-2"><a>Blog</a></li>
-                <li className="mb-2"><a>Contact</a></li>
+                <li className="mb-2"><Link passHref href="#"><a className="text-decoration-none text-white">Sobre</a></Link></li>
+                <li className="mb-2"><Link passHref href="#projects"><a className="text-decoration-none text-white">Projetos</a></Link></li>
+                <li className="mb-2"><Link passHref href="#courses"><a className="text-decoration-none text-white">Qualificações</a></Link></li>
+                <li className="mb-2"><Link passHref href="#contact"><a className="text-decoration-none text-white">Contato</a></Link></li>
               </ul>
             </div>
             <div className="col-6 col-lg-3 mb-3">
-              <h5 className="mb-4">Service</h5>
+              <h5 className="mb-4">Qualificações</h5>
               <ul className="list-unstyled">
-                <li className="mb-2"><a>Design</a></li>
-                <li className="mb-2"><a>Devlopment</a></li>
-                <li className="mb-2"><a>Marketing</a></li>
-                <li className="mb-2"><a>See More</a></li>
+                <li className="mb-2"><Link passHref href="#courses"><a className="text-decoration-none text-white">Javascript</a></Link></li>
+                <li className="mb-2"><Link passHref href="#courses"><a className="text-decoration-none text-white">PHP</a></Link></li>
+                <li className="mb-2"><Link passHref href="#courses"><a className="text-decoration-none text-white">Python</a></Link></li>
               </ul>
             </div>
             <div className="col-6 col-lg-2 mb-3">
               <ul className="list-unstyled row">
-                <li className="mb-2 col-4">
-                  <a>
-                    <FaFacebook size={24*2} />
-                  </a>
+                <li className="mb-2 pe-2 col-4">
+                  <Link passHref href="https://www.facebook.com/mateus.arenas.3">
+                    <a className='text-white'>
+                      <FaFacebook size={24*1.8} />
+                    </a>
+                  </Link>
                 </li>
-                <li className="mb-2 col-4">
-                  <a>
-                    <FaTwitch size={24*2} />
-                  </a>
+                <li className="mb-2 pe-2 col-4">
+                  <Link passHref href="https://www.linkedin.com/in/mateus-arenas-11965518a/">
+                    <a className='text-white'>
+                      <FaLinkedin size={24*1.8} />
+                    </a>
+                  </Link>
                 </li>
-                <li className="mb-2 col-4">
-                  <a>
-                    <FaInstagram size={24*2} />
-                  </a>
+                <li className="mb-2 pe-2 col-4">
+                  <Link passHref href="https://www.instagram.com/arenas_mat/">
+                    <a className='text-white'>
+                      <FaInstagram size={24*1.8} />
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -354,15 +375,15 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
           <div className="row mt-5">
             
             <div className="col-12 col-md-6">
-              <p>Copyright © 2022 Laaqiq. All Rights Reserved.</p>
+              <p>Copyright © 2022 Mateus Arenas Gioio. All Rights Reserved.</p>
             </div>
 
-            <div className="col-12 col-md-6 text-center text-md-end">
+            {/* <div className="col-12 col-md-6 text-center text-md-end">
               <div className="btn-group col-auto">
                   <a className="nav-link me-2">Terms of Use</a>
                   <a className="nav-link me-2">Privacy Policy</a>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
