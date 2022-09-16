@@ -4,12 +4,12 @@ function NavBar() {
   return (
     <Navbar sticky={'top'} collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container >
-        <Navbar.Brand href="#home">Mateus Arenas Gioio</Navbar.Brand>
+        <Navbar.Brand href="/">Mateus Arenas Gioio</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            {/* <Nav.Link href="#projects">Projetos</Nav.Link>
+            <Nav.Link href="#courses">Qualificações</Nav.Link>
             <NavDropdown menuVariant='dark' title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -20,12 +20,13 @@ function NavBar() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+            <Nav.Link href="#projects">Projetos</Nav.Link>
+            <Nav.Link href="#courses">Qualificações</Nav.Link>
+            <Nav.Link eventKey={2} href="#contact">
+              Contato
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

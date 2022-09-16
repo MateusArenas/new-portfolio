@@ -43,6 +43,18 @@ a {
   cursor: pointer;
 }
 
+.app-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  /* background-color: #EF6D58; */
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 /* .anchor[id]::before {
   content: '';
   display: block;
