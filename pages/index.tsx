@@ -34,7 +34,7 @@ const Home: NextPage<{ data: IProject[] }> = ({ data }) => {
   return (
     <div className="container-fluid bg-dark px-0">
       <Head>
-        <meta property="og:image" content="./assets/pic.png" />
+        <meta property="og:image" content="/images/pic.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="460" />
         <meta property="og:image:height" content="460" /> 
