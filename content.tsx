@@ -1,4 +1,6 @@
-import { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
+import { DiPhp, DiJavascript1, DiPython, DiHtml5, DiCssTricks, DiCss3, DiDart } from 'react-icons/di';
+import { TbCSharp } from 'react-icons/tb';
+import { SiDart } from 'react-icons/si';
 
 export const content = {
   "title": "Mateus Arenas Gioio",
@@ -37,7 +39,7 @@ export const content = {
     "items": [
       { 
         "title": "Javascript", 
-        "info": "Language", 
+        "info": "Program Language", 
         "icon": <DiJavascript1 size={32} />,
         "description": "Typescript, node, Express, Adonis, Mongoose, Sequelize, Socket IO, React, React Native, Next",
         "background": "#efd81d",
@@ -45,7 +47,7 @@ export const content = {
       },
       { 
         "title": "PHP", 
-        "info": "Language", 
+        "info": "Program Language", 
         "icon": <DiPhp size={42} />,
         "description": "PDO, Phpmyadmin, Xammp, Laravel, Slim Framework",
         "background": "#4b568b",
@@ -53,12 +55,44 @@ export const content = {
       },
       { 
         "title": "Python", 
-        "info": "Language", 
+        "info": "Program Language", 
         "icon": <DiPython size={32} />,
         "description": "Django, Flask, Mongoengine, Pymongo, JWT, Bcrypt",
         "background": "#006a9a",
         "color": "#ecc825"
-      }
+      },
+      { 
+        "title": "C#", 
+        "info": "Program Language", 
+        "icon": <TbCSharp size={32} />,
+        "description": "Criações de jogos com Unity, conhecimento de logica e .NET.",
+        "background": "#934b8f",
+        "color": "white"
+      },
+      { 
+        "title": "Dart", 
+        "info": "Program Language", 
+        "icon": <SiDart size={26} />,
+        "description": "Criações de sites e apps com flutter e conhecimento de logica.",
+        "background": "#2aaee9",
+        "color": "#025493"
+      },
+      { 
+        "title": "HTML", 
+        "info": "Markup Language", 
+        "icon": <DiHtml5 size={32} />,
+        "description": "Tags semânticas, ultilizção de SEO e boas práticas com alto desempenho e escrita.",
+        "background": "#e56027",
+        "color": "white"
+      },
+      { 
+        "title": "CSS", 
+        "info": "Style Language", 
+        "icon": <DiCss3 size={32} />,
+        "description": "Criações de sites reponsivos ultilizando Bootstrap com conhecimento em flex-box e grid.",
+        "background": "#27a0d4",
+        "color": "white"
+      },
     ]
   },
   "contact": {

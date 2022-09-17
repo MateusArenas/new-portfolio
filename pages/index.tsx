@@ -32,6 +32,7 @@ export async function getServerSideProps() {
 const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
 
   const [showMoreProjects, setShowMoreProjects] = React.useState(false);
+  const [showMoreQualifications, setShowMoreQualifications] = React.useState(false);
 
 
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<{ email: string, subject: string, message: string }>();
@@ -170,8 +171,8 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           
           <div className="row mt-4">
             <div className="col-12 text-center">
-              <button onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">
-                {showMoreProjects ? content.projects.btnmore.active : content.projects.btnmore.default}
+              <button disabled={content.qualifications.items.length <= 3} onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">
+                {(showMoreProjects && content.qualifications.items.length > 3) ? content.projects.btnmore.active : content.projects.btnmore.default}
               </button>
             </div>
           </div>
@@ -182,8 +183,8 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           <div className="text-center mt-4 mb-4 app-text-primary">{content.qualifications.info}</div>
           <h2 className="text-center">{content.qualifications.title}</h2>
 
-          <div className="row  gy-2 m-0 mt-5">
-              {content.qualifications.items.map(item => (
+          <div className="row g-2 g-lg-4 m-0 mt-5">
+              {content.qualifications.items.slice(0, showMoreQualifications ? content.qualifications.items.length : 3).map(item => (
                 <div key={item?.title} className="col-12 col-md-4">
                   <div className="card h-100 bg-dark p-4">
                     <div className="card-body">
@@ -230,7 +231,9 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           </div>
           <div className="text-center py-4 mt-5">
             {/* <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p> */}
-            <button className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">{content.qualifications.btnmore.default}</button>
+            <button disabled={content.qualifications.items.length <= 3} onClick={() => setShowMoreQualifications(show => !show)} className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">
+              {(showMoreQualifications && content.qualifications.items.length > 3) ? content.qualifications.btnmore.active : content.qualifications.btnmore.default}
+            </button>
           </div>
       </div>
 
