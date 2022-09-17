@@ -111,7 +111,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
             
           </div>
 
-          <div  className="row gy-2 py-4">
+          <div  className="row g-2 g-lg-4 py-4">
             {/* {repos?.slice(0, 4)?.map(item => ( */}
             {pinneds?.slice(0, showMoreProjects ? pinneds.length : 4)?.map(item => (
               <Link key={item?.repo} passHref shallow href={item?.website || item?.link}>
