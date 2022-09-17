@@ -26,7 +26,6 @@ export async function getServerSideProps() {
   // const { data: repos } = await axios.get('https://api.github.com/users/mateusarenas/repos');
   const { data: pinneds } = await axios.get(`https://gh-pinned-repos.egoist.dev/?username=${content.username}`);
 
-  // Pass data to the page via props
   return { props: { pinneds } }
 }
 
@@ -39,6 +38,13 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
   
   async function onSubmit (data: { email: string, subject: string, message: string }) {
     window.open(`mailto:${data.email}?subject=${data.subject}&body=${data.message}`);
+  }
+
+  function phoneToMask(v: string) : string {
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
   }
 
   return (
@@ -80,10 +86,10 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                     <div className="card-body">
                       <h1 className="card-title">{content.about.title}</h1>
                       <p className="card-text">{content.about.description}</p>
-                      <Link href={"#projects"}>
+                      <Link href={`#${content.projects.id}`}>
                         <a className="btn btn-primary app-bg-primary border-0 me-2">{content.about.calltoactions.projects}</a>
                       </Link>
-                      <Link href={"#courses"}>
+                      <Link href={`#${content.qualifications.id}`}>
                         <a className="btn btn-outline-secondary">{content.about.calltoactions.qualifications}</a>
                       </Link>
                     </div>
@@ -93,13 +99,13 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
         </div>
       </div>
 
-      <div id='projects' className="container-fluid bg-white">
+      <div id={content.projects.id} className="container-fluid bg-white">
         <div className="container pb-5">
 
           <div className="row py-5 align-items-center">
             <div className="col-12 col-md-12 text-center">
-              <p className="app-text-primary fw-bold">Portfólio</p>
-              <h2 className="text-dark">Projetos</h2>
+              <p className="app-text-primary fw-bold">{content.projects.info}</p>
+              <h2 className="text-dark">{content.projects.title}</h2>
             </div>
             
           </div>
@@ -164,13 +170,15 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           
           <div className="row mt-4">
             <div className="col-12 text-center">
-              <button onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">{showMoreProjects ? "Esconder" : "Veja Mais"}</button>
+              <button onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">
+                {showMoreProjects ? content.projects.btnmore.active : content.projects.btnmore.default}
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div id='courses' className="container-fluid py-5 px-0 px-lg-5 bg-dark text-white py-4">
+      <div id={content.qualifications.id} className="container-fluid py-5 px-0 px-lg-5 bg-dark text-white py-4">
           <div className="text-center mt-4 mb-4 app-text-primary">{content.qualifications.info}</div>
           <h2 className="text-center">{content.qualifications.title}</h2>
 
@@ -251,43 +259,37 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
       </div> */}
 
 
-      <div id='contact' className="bg-white my-5">
+      <div id={content.contact.id} className="bg-white my-5">
         <div className="container py-5">
           <div className="row py-5 align-items-start">
 
             <div className="col-12 col-md-6 p-3 p-md-5 order-md-2 order-sm-1">
               <div className="card border-0 text-dark bg-transparent">
                 <div className="card-header bg-transparent border-0 app-text-primary">
-                  CONTATO
+                  {content.contact.info}
                 </div>
                 <div className="card-body mb-4">
-                  <h1 className="card-title">Me Contacte</h1>
-                  <p className="card-text">Entre em contato para fins de contratação ou confecção de um projeto.</p>
+                  <h1 className="card-title">{content.contact.title}</h1>
+                  <p className="card-text">{content.contact.description}</p>
                 </div>
                 <ul className="list-group list-group-flush border-0 mb-5">
-                  {/* <li className="list-group-item bg-transparent border-0 mb-3">
-                    <span className="app-icon-btn rounded-circle me-3">
-                      <FaLocationArrow />
-                    </span>
-                    2247 Lunetta Street, TX 76301
-                  </li> */}
                   <li className="list-group-item bg-transparent border-0 mb-3">
-                    <Link passHref href="tel:5511949123337">
+                    <Link passHref href={`tel:${content.contact.phone}`}>
                       <a className="text-decoration-none text-dark">
                         <span className="app-icon-btn rounded-circle me-3">
                           <FaPhone />
                         </span>
-                      +55 (11) 94912-3337
+                          {phoneToMask(content.contact.phone)}
                       </a>
                     </Link>
                   </li>
                   <li className="list-group-item bg-transparent border-0 mb-3">
-                    <Link passHref href="mailto:mateusarenas97@gmail.com">
+                    <Link passHref href={`mailto:${content.contact.email}`}>
                       <a className="text-decoration-none text-dark">
                         <span className="app-icon-btn rounded-circle me-3">
                           <FaEnvelope />
                         </span>
-                        mateusarenas97@gmail.com
+                        {content.contact.email}
                       </a>
                     </Link>
                   </li>
@@ -299,33 +301,32 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
               <form onSubmit={handleSubmit(onSubmit)} className="row g-3 border bg-light p-4 py-5 rounded">
 
                 <div className="col-12">
-                  <h3>Envie uma mensagem</h3>
+                  <h3>{content.contact.form.title}</h3>
                 </div>
 
                 <div className="col-12 form-floating mb-3">
                   <input id="floatingInput" type="email" className="form-control" placeholder="name@example.com" {...register("email", { required: true })} />
-                  <label className="ps-3" htmlFor="floatingInput">Email</label>
+                  <label className="ps-3" htmlFor="floatingInput">{content.contact.form.inputs.email.label}</label>
                   {errors.email && <span>É precisso adicionar um email</span>}
                 </div>
                 
                 <div className="col-12 form-floating">
                   <select className="form-select" id="floatingSelectGrid" {...register("subject", { required: true })}>
-                    <option selected value="Confecção de um projeto" >Confecção de um projeto</option>
-                    <option value="Contratação como front-end">Contratação como front-end</option>
-                    <option value="Contratação como back-end">Contratação como back-end</option>
-                    <option value="Contratação como full-stack">Contratação como full-stack</option>
+                    {content.contact.form.inputs.subject.values.map((value, index) => (
+                      <option key={value} selected={!index} value={value} >{value}</option>
+                    ))}
                   </select>
-                  <label className="ps-3" htmlFor="floatingSelectGrid">Selecione um assunto</label>
+                  <label className="ps-3" htmlFor="floatingSelectGrid">{content.contact.form.inputs.subject.label}</label>
                 </div>
 
                 <div className="col-12 form-floating">
                   <textarea id="floatingTextarea2" className="form-control" placeholder="Leave a comment here" style={{ height: 100 }} {...register("message", { required: true })} />
-                  <label className="ps-3" htmlFor="floatingTextarea2">Mensagem</label>
+                  <label className="ps-3" htmlFor="floatingTextarea2">{content.contact.form.inputs.message.label}</label>
                   {errors.message && <span>É precisso adicionar uma mensagem</span>}
                 </div>
 
                 <div className="col-12">
-                  <button type="submit" className="btn app-bg-primary text-white float-end mt-4">Enviar agora</button>
+                  <button type="submit" className="btn app-bg-primary text-white float-end mt-4">{content.contact.form.inputs.submit.label}</button>
                 </div>
 
               </form>
@@ -348,10 +349,9 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
             <div className="col-6 col-lg-3 offset-lg-1 mb-3">
               <h5 className="mb-4">Menu</h5>
               <ul className="list-unstyled">
-                <li className="mb-2"><Link passHref href="#"><a className="text-decoration-none text-white">Sobre</a></Link></li>
-                <li className="mb-2"><Link passHref href="#projects"><a className="text-decoration-none text-white">Projetos</a></Link></li>
-                <li className="mb-2"><Link passHref href="#courses"><a className="text-decoration-none text-white">Qualificações</a></Link></li>
-                <li className="mb-2"><Link passHref href="#contact"><a className="text-decoration-none text-white">Contato</a></Link></li>
+                {content.sections.map(item => (
+                  <li key={item.id} className="mb-2"><Link passHref href={`#${item.id}`}><a className="text-decoration-none text-white">{item.name}</a></Link></li>
+                ))}
               </ul>
             </div>
             <div className="col-6 col-lg-3 mb-3">
