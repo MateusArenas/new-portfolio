@@ -21,8 +21,8 @@ export const content = {
   ],
   "about": { 
     "id": "",
-    "title": "Um pouco sobre min",
-    "description": "Sou um Desenvolvedor de Sistemas Web e Mobile, tendo como foco principal a linguagem Javascript/ Typescript e o Freamework React Native. Faço construções de APIs utilizando Node Js e MongoDB. Atualmente trabalho com Freelancer e estou em fase de conclusão de estudos em Analise e Desenvolvedor de Sistemas.",
+    "title": "Um pouco sobre mim",
+    "description": "Olá, sou um desenvolvedor de sistemas web e mobile, com habilidades em PHP, React e React Native. Atuo no mercado há algum tempo e tenho grande experiência em desenvolvimento de aplicações móveis com React Native, bem como em desenvolvimento web com PHP e React.\n Tenho grande paixão por criar soluções criativas e eficazes para meus clientes, sempre buscando estar atualizado com as mais recentes tecnologias e tendências do mercado. Meu objetivo é fornecer o melhor resultado possível, ajudando meus clientes a alcançar seus objetivos de negócios\n Estou sempre disposto a enfrentar novos desafios e assumir projetos cada vez mais complexos, aprimorando minhas habilidades e experiência ao longo do caminho. Se você está procurando um desenvolvedor web ou mobile altamente qualificado, entre em contato comigo para discutirmos seus projetos e como posso ajudar a transformar suas ideias em realidade.",
     "calltoactions": { "projects": "Projetos", "qualifications": "Qualificações", "contact": "Entrar em contato" },
   },
   "projects": {
