@@ -24,9 +24,15 @@ export async function getServerSideProps() {
   // const { data } = await api.get('/projects');
   // const { data } = await axios.get('https://api.github.com/users/mateusarenas');
   // const { data: repos } = await axios.get('https://api.github.com/users/mateusarenas/repos');
-  const { data: pinneds } = await axios.get(`https://gh-pinned-repos.egoist.dev/?username=${content.username}`);
+  // let { data: pinneds } = await axios.get(`https://gh-pinned-repos.egoist.dev/?username=${content.username}`);
 
-  return { props: { pinneds } }
+  // if (pinneds?.length) {
+  //   pinneds = content.projects.pinneds;
+  // }
+
+  // console.log({ pinneds });
+
+  return { props: { pinneds: [] } }
 }
 
 const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
@@ -36,15 +42,15 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
 
 
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<{ email: string, subject: string, message: string }>();
-  
-  async function onSubmit (data: { email: string, subject: string, message: string }) {
+
+  async function onSubmit(data: { email: string, subject: string, message: string }) {
     window.open(`mailto:${data.email}?subject=${data.subject}&body=${data.message}`);
   }
 
-  function phoneToMask(v: string) : string {
-    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
-    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+  function phoneToMask(v: string): string {
+    v = v.replace(/\D/g, "");             //Remove tudo o que não é dígito
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
     return v;
   }
 
@@ -54,49 +60,49 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
         <meta property="og:image" content="/images/pic.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="460" />
-        <meta property="og:image:height" content="460" /> 
+        <meta property="og:image:height" content="460" />
 
         <title>{content.title}</title>
         <meta name="description" content={content.about.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <NavBar />
+      <NavBar />
 
-        <Link passHref href={`https://api.whatsapp.com/send?phone=${content.whatsapp}`}>
-          <a className='position-fixed bottom-0 end-0 m-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2}} rel="noreferrer" aria-label="Link Direto para o contato no Whatsapp" id="wppLink" target="_blank" >
-            <FaWhatsapp className='p-1' size={24*1.8} />
-          </a>
-        </Link>
+      <Link passHref href={`https://api.whatsapp.com/send?phone=${content.whatsapp}`}>
+        <a className='position-fixed bottom-0 end-0 m-4 text-white bg-success rounded-circle p-2 border border-secondary' style={{ zIndex: 2 }} rel="noreferrer" aria-label="Link Direto para o contato no Whatsapp" id="wppLink" target="_blank" >
+          <FaWhatsapp className='p-1' size={24 * 1.8} />
+        </a>
+      </Link>
 
-        <div className="container-fluid bg-dark pt-0 pt-lg-5 pb-5">
-            <div className="row align-items-center px-md-5">
-              <div className="col-12 col-md-6 order-1 order-sm-2">
-                <div className="row justify-content-end px-4">
-                  <Image alt='image-profile' src="/images/pic.png" className="img-fluid" width={569} height={555} />
+      <div className="container-fluid bg-dark pt-0 pt-lg-5 pb-5">
+        <div className="row align-items-center px-md-5">
+          <div className="col-12 col-md-6 order-1 order-sm-2">
+            <div className="row justify-content-end px-4">
+              <Image alt='image-profile' src="/images/pic.png" className="img-fluid" width={569} height={555} />
+            </div>
+          </div>
+          <div className="col-12 col-md-6 order-2 order-sm-1">
+            <div className="row justify-content-start">
+              <div className="card border-0 bg-transparent text-white">
+                <Link passHref href={"#contact"}>
+                  <a className="card-header bg-transparent border-0 text-decoration-none app-text-primary">
+                    {content.about.calltoactions.contact}
+                  </a>
+                </Link>
+                <div className="card-body">
+                  <h1 className="card-title">{content.about.title}</h1>
+                  <p className="card-text">{content.about.description}</p>
+                  <Link href={`#${content.projects.id}`}>
+                    <a className="btn btn-primary app-bg-primary border-0 me-2">{content.about.calltoactions.projects}</a>
+                  </Link>
+                  <Link href={`#${content.qualifications.id}`}>
+                    <a className="btn btn-outline-secondary">{content.about.calltoactions.qualifications}</a>
+                  </Link>
                 </div>
               </div>
-              <div className="col-12 col-md-6 order-2 order-sm-1">
-                <div className="row justify-content-start">
-                  <div className="card border-0 bg-transparent text-white">
-                    <Link passHref href={"#contact"}>
-                      <a className="card-header bg-transparent border-0 text-decoration-none app-text-primary">
-                        {content.about.calltoactions.contact}
-                      </a>
-                    </Link>
-                    <div className="card-body">
-                      <h1 className="card-title">{content.about.title}</h1>
-                      <p className="card-text">{content.about.description}</p>
-                      <Link href={`#${content.projects.id}`}>
-                        <a className="btn btn-primary app-bg-primary border-0 me-2">{content.about.calltoactions.projects}</a>
-                      </Link>
-                      <Link href={`#${content.qualifications.id}`}>
-                        <a className="btn btn-outline-secondary">{content.about.calltoactions.qualifications}</a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -108,38 +114,38 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
               <p className="app-text-primary fw-bold">{content.projects.info}</p>
               <h2 className="text-dark">{content.projects.title}</h2>
             </div>
-            
+
           </div>
 
-          <div  className="row g-2 g-lg-4 py-4">
+          <div className="row g-2 g-lg-4 py-4">
             {/* {repos?.slice(0, 4)?.map(item => ( */}
-            {pinneds?.slice(0, showMoreProjects ? pinneds.length : 4)?.map(item => (
+            {content.projects.pinneds?.slice(0, showMoreProjects ? content.projects.pinneds?.length ?? 0 : 4)?.map(item => (
               <Link key={item?.repo} passHref shallow href={item?.website || item?.link}>
                 <a target="_blank" rel="noopener noreferrer" className="col-12 col-md-6 col-lg-3 p-2 text-decoration-none">
                   <div className="card overflow-hidden bg-light text-dark w-100 h-100">
                     {/* <div className='d-flex align-items-center justify-content-center bg-secondary rounded-end w-100 h-100 position-relative overflow-hidden' style={{ aspectRatio: "16/16" }}> */}
-                                      {/* <p className='text-white'>{item?._id}</p> */}
-                                      {/* <Image alt='product-img' src="/images/default-product.webp" objectFit="cover" layout="fill" width={1080} height={720} /> */}
-                                    {/* </div> */}
-                      <div className="row g-0 h-100 w-100" style={{ aspectRatio: "16/14" }}>
-                        <div className="col-6 position-relative">
-                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-primary.gif`} 
-                          alt={''} 
-                            
-                            // onError={function (e) {
-                            //   console.log({ e });
-                            //   // e.target.src = `https://raw.githubusercontent.com/${item?.full_name}/main/show.gif`;
-                            //   // this?.src='https://php-page-auth.vercel.app/images/banner.png';
-                            // }}
-                            className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} 
-                          />
-                        </div>
-                        <div className="col-6 position-relative">
-                          <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-secondary.gif`}
-                          alt={''} 
-                          className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
-                        </div>
+                    {/* <p className='text-white'>{item?._id}</p> */}
+                    {/* <Image alt='product-img' src="/images/default-product.webp" objectFit="cover" layout="fill" width={1080} height={720} /> */}
+                    {/* </div> */}
+                    <div className="row g-0 h-100 w-100" style={{ aspectRatio: "16/14" }}>
+                      <div className="col-6 position-relative">
+                        <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-primary.gif`}
+                          alt={''}
+
+                          // onError={function (e) {
+                          //   console.log({ e });
+                          //   // e.target.src = `https://raw.githubusercontent.com/${item?.full_name}/main/show.gif`;
+                          //   // this?.src='https://php-page-auth.vercel.app/images/banner.png';
+                          // }}
+                          className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720}
+                        />
                       </div>
+                      <div className="col-6 position-relative">
+                        <Image src={`https://raw.githubusercontent.com/${item?.owner}/${item?.repo}/main/mobile-secondary.gif`}
+                          alt={''}
+                          className="card-img rounded-0" objectFit="cover" layout="fill" width={1080} height={720} />
+                      </div>
+                    </div>
 
                     <div className="card-body d-flex flex-column justify-content-end p-3 py-4">
                       <div className="d-flex flex-row justify-content-between align-items-center mb-3">
@@ -147,15 +153,11 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                           <span style={{ backgroundColor: item?.languageColor }} className="badge rounded-pill border text-white p-2">{item?.language || item?.topics?.join(", ")}</span>
                         </div>
                         <div className="d-flex flex-row justify-content-between align-items-center">
-                          <Link passHref shallow href={item?.link || ""}>
-                            <a className="text-dark me-3" target="_blank">
-                              <FaGithub size={20} />
-                            </a>
+                          <Link legacyBehavior href={item.link} className="text-dark me-3" target="_blank">
+                            <FaGithub size={20} />
                           </Link>
-                          <Link passHref shallow href={item?.website || ""}>
-                            <a className="text-dark" target="_blank">
-                              <FaExternalLinkAlt size={20} />
-                            </a>
+                          <Link legacyBehavior href={item.website} className="text-dark" target="_blank">
+                            <FaExternalLinkAlt size={20} />
                           </Link>
                         </div>
                       </div>
@@ -168,7 +170,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
             ))}
 
           </div>
-          
+
           <div className="row mt-4">
             <div className="col-12 text-center">
               <button disabled={content.qualifications.items.length <= 3} onClick={() => setShowMoreProjects(show => !show)} type="button" className="btn btn-outline-dark">
@@ -180,35 +182,35 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
       </div>
 
       <div id={content.qualifications.id} className="container-fluid py-5 px-0 px-lg-5 bg-dark text-white py-4">
-          <div className="text-center mt-4 mb-4 app-text-primary">{content.qualifications.info}</div>
-          <h2 className="text-center">{content.qualifications.title}</h2>
+        <div className="text-center mt-4 mb-4 app-text-primary">{content.qualifications.info}</div>
+        <h2 className="text-center">{content.qualifications.title}</h2>
 
-          <div className="row g-2 g-lg-4 m-0 mt-5">
-              {content.qualifications.items.slice(0, showMoreQualifications ? content.qualifications.items.length : 3).map(item => (
-                <div key={item?.title} className="col-12 col-md-4">
-                  <div className="card h-100 bg-dark p-4">
-                    <div className="card-body">
-                      <div className="d-flex flex-row align-items-center">
-                        <span className="app-icon position-relative rounded-circle" style={{ backgroundColor: item?.background, color: item?.color }}>
-                          <span className='position-absolute'>
-                            {item.icon}
-                          </span>
-                        </span>
-                        <div className='p-4'>
-                          <h3 className="card-title mb-0">
-                          {item?.title}
-                          </h3>
-                          <small className='text-muted'>{item.info}</small>
-                        </div>
-                      </div>
-                      <p className="card-text">{item?.description}</p>
-                      {/* <small className="card-text">React Native/NextJS</small> */}
-                      {/* <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Learn More</a></Link> */}
+        <div className="row g-2 g-lg-4 m-0 mt-5">
+          {content.qualifications.items.slice(0, showMoreQualifications ? content.qualifications.items.length : 3).map(item => (
+            <div key={item?.title} className="col-12 col-md-4">
+              <div className="card h-100 bg-dark p-4">
+                <div className="card-body">
+                  <div className="d-flex flex-row align-items-center">
+                    <span className="app-icon position-relative rounded-circle" style={{ backgroundColor: item?.background, color: item?.color }}>
+                      <span className='position-absolute'>
+                        {item.icon}
+                      </span>
+                    </span>
+                    <div className='p-4'>
+                      <h3 className="card-title mb-0">
+                        {item?.title}
+                      </h3>
+                      <small className='text-muted'>{item.info}</small>
                     </div>
                   </div>
+                  <p className="card-text">{item?.description}</p>
+                  {/* <small className="card-text">React Native/NextJS</small> */}
+                  {/* <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Learn More</a></Link> */}
                 </div>
-              ))}
-{/* 
+              </div>
+            </div>
+          ))}
+          {/* 
 
             <div className="col-12 col-md-3">
               <div className="card bg-dark p-4">
@@ -228,16 +230,16 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
             </div> */}
 
 
-          </div>
-          <div className="text-center py-4 mt-5">
-            {/* <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p> */}
-            <button disabled={content.qualifications.items.length <= 3} onClick={() => setShowMoreQualifications(show => !show)} className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">
-              {(showMoreQualifications && content.qualifications.items.length > 3) ? content.qualifications.btnmore.active : content.qualifications.btnmore.default}
-            </button>
-          </div>
+        </div>
+        <div className="text-center py-4 mt-5">
+          {/* <p>Want more service? <Link href={"#"}><a className="text-decoration-none app-text-primary p-0">Explore Now</a></Link></p> */}
+          <button disabled={content.qualifications.items.length <= 3} onClick={() => setShowMoreQualifications(show => !show)} className="btn app-text-primary app-border-primary text-decoration-none app-text-primary">
+            {(showMoreQualifications && content.qualifications.items.length > 3) ? content.qualifications.btnmore.active : content.qualifications.btnmore.default}
+          </button>
+        </div>
       </div>
 
-{/* 
+      {/* 
       <div className="container my-5">
         <div className="row py-4 align-items-center">
           <div className="col-12 col-md-6">
@@ -282,7 +284,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                         <span className="app-icon-btn rounded-circle me-3">
                           <FaPhone />
                         </span>
-                          {phoneToMask(content.contact.phone)}
+                        {phoneToMask(content.contact.phone)}
                       </a>
                     </Link>
                   </li>
@@ -312,7 +314,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                   <label className="ps-3" htmlFor="floatingInput">{content.contact.form.inputs.email.label}</label>
                   {errors.email && <span>É precisso adicionar um email</span>}
                 </div>
-                
+
                 <div className="col-12 form-floating">
                   <select className="form-select" id="floatingSelectGrid" {...register("subject", { required: true })}>
                     {content.contact.form.inputs.subject.values.map((value, index) => (
@@ -370,30 +372,30 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
                 <li className="mb-2 pe-2 col-4">
                   <Link passHref href={content.instagram}>
                     <a className='text-white'>
-                      <FaInstagram size={24*1.8} />
+                      <FaInstagram size={24 * 1.8} />
                     </a>
                   </Link>
                 </li>
                 <li className="mb-2 pe-2 col-4">
                   <Link passHref href={content.linkedin}>
                     <a className='text-white'>
-                      <FaLinkedin size={24*1.8} />
+                      <FaLinkedin size={24 * 1.8} />
                     </a>
                   </Link>
                 </li>
                 <li className="mb-2 pe-2 col-4">
                   <Link passHref href={content.github}>
                     <a className='text-white'>
-                      <FaGithub size={24*1.8} />
+                      <FaGithub size={24 * 1.8} />
                     </a>
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-          <hr className="border-2 opacity-50"/>
+          <hr className="border-2 opacity-50" />
           <div className="row mt-5 mb-5 mb-lg-0">
-            
+
             <div className="col-12 col-md-6">
               <p>{content.copyright}</p>
             </div>
