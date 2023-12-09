@@ -38,7 +38,7 @@ export async function getServerSideProps() {
 const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
 
   const [showMoreProjects, setShowMoreProjects] = React.useState(false);
-  const [showMoreQualifications, setShowMoreQualifications] = React.useState(false);
+  const [showMoreQualifications, setShowMoreQualifications] = React.useState(true);
 
 
   const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<{ email: string, subject: string, message: string }>();
