@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
 import { FaFacebook, FaTwitch, FaInstagram, FaBriefcase, FaPalette, FaSearchLocation, FaPhone, FaVoicemail, FaLocationArrow, FaEnvelope, FaGithub, FaLink, FaExternalLinkAlt, FaReact, FaJsSquare, FaPython, FaPhp, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import Di, { DiPhp, DiJavascript1, DiPython } from 'react-icons/di';
-
+import SyntaxHighlighter from "react-syntax-highlighter";
 
 import api from '../services/api'
 import axios from 'axios'
@@ -53,6 +53,14 @@ const ArtigoE2E: NextPage = ({ }) => {
         </div>
 
         <br />
+
+        <SyntaxHighlighter language="javascript" >
+          {`
+            function helloWorld() {
+              console.log("Hello, world!");
+            }
+          `}
+        </SyntaxHighlighter>
 
         <div className="container" >
           <div className="container p-4 p-md-5">
