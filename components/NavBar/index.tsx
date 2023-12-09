@@ -23,6 +23,7 @@ function NavBar() {
             </NavDropdown> */}
           </Nav>
           <Nav>
+            <Nav.Link href="/artigo-e2e">Artigo</Nav.Link>
             <Nav.Link href="#projects">Projetos</Nav.Link>
             <Nav.Link href="#courses">Qualificações</Nav.Link>
             <Nav.Link eventKey={2} href="#contact">
