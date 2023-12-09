@@ -12,7 +12,7 @@ export const content = {
   "github": "https://github.com/MateusArenas",
   "linkedin": "https://www.linkedin.com/in/mateus-arenas-11965518a/",
   "instagram": "https://www.instagram.com/arenas_mat/",
-  "copyright": "Copyright © 2022 Mateus Arenas Gioio. All Rights Reserved.",
+  "copyright": "Mateus Arenas Gioio. All Rights Reserved.",
   "sections": [
     { id: "about", name: "Sobre" },
     { id: "projects", name: "Projetos" },

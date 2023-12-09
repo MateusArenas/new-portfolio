@@ -397,7 +397,7 @@ const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
           <div className="row mt-5 mb-5 mb-lg-0">
 
             <div className="col-12 col-md-6">
-              <p>{content.copyright}</p>
+              <p> Copyright © {new Date().getFullYear()} {content.copyright}</p>
             </div>
 
             {/* <div className="col-12 col-md-6 text-center text-md-end">
