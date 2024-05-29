@@ -32,6 +32,36 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
+        "image1": "/images/rca-site.gif",
+        "image2": "/images/rca-site.gif",
+        "link": "https://www.redecredauto.com.br/portal/",
+        "website": "https://www.redecredauto.com.br/portal/",
+        "github": "",
+        "description": "Site Rede Cred Auto",
+        "usage": "PHP & Tailwind CSS",
+        "icon": "fab fa-php",
+        "owner": "mateusarenas",
+        "repo": "",
+        "languageColor": "cyan",
+        "language": "Tailwind CSS",
+        "topics": []
+      },
+      {
+        "image1": "/images/rca-app.gif",
+        "image2": "/images/rca-expo.gif",
+        "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
+        "website": "https://www.redecredauto.com.br/portal/",
+        "github": "",
+        "description": "APP Rede Cred Auto",
+        "usage": "REACT NATIVE & EXPO",
+        "icon": "fab fa-react-native",
+        "owner": "mateusarenas",
+        "repo": "",
+        "languageColor": "blue",
+        "language": "React Native",
+        "topics": []
+      },
+      {
         "image1": "/images/insta-delivery.gif",
         "image2": "/images/insta-delivery.gif",
         "link": "https://insta-delivery.vercel.app/",
