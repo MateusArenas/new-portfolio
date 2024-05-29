@@ -50,7 +50,7 @@ export const content = {
         "image1": "/images/rca-app.gif",
         "image2": "/images/rca-expo.gif",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
-        "website": "https://www.redecredauto.com.br/portal/",
+        "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
         "description": "APP Rede Cred Auto",
         "usage": "REACT NATIVE & EXPO",
