@@ -22,7 +22,7 @@ export const content = {
   "about": {
     "id": "",
     "title": "Um pouco sobre mim",
-    "description": "Olá, sou um desenvolvedor web e mobile apaixonado por criar soluções criativas e eficazes para meus clientes.\nAtuo no mercado há algum tempo e tenho grande experiência em desenvolvimento de aplicações móveis com React Native, bem como em desenvolvimento web com PHP e React.",
+    "description": "Olá! Sou um desenvolvedor web e mobile apaixonado por criar soluções criativas e eficazes para meus clientes. Tenho ampla experiência em desenvolvimento de aplicativos móveis com React Native e em desenvolvimento web com PHP e React. Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades e conhecimentos.",
     "calltoactions": { "projects": "Projetos", "qualifications": "Qualificações", "contact": "Entrar em contato" },
   },
   "projects": {
