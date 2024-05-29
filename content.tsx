@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "/images/rca-site.gif",
-        "image2": "/images/rca-site.gif",
+        "image1": "https://mateusarenas.vercel.app/images/rca-site.gif",
+        "image2": "https://mateusarenas.vercel.app/images/rca-site.gif",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
@@ -47,8 +47,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "/images/rca-app.gif",
-        "image2": "/images/rca-expo.gif",
+        "image1": "https://mateusarenas.vercel.app/images/rca-app.gif",
+        "image2": "https://mateusarenas.vercel.app/images/rca-expo.gif",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
