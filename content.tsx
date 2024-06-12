@@ -47,8 +47,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://mateusarenas.vercel.app/images/rca-site.gif",
-        "image2": "https://mateusarenas.vercel.app/images/rca-site.gif",
+        "image1": "/images/rca-site.gif",
+        "image2": "/images/rca-site.gif",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
