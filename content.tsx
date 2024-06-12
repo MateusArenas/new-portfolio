@@ -32,10 +32,10 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "./images/rca-site.gif",
-        "image2": "./images/rca-site.gif",
-        "link": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif",
-        "website": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif",
+        "image1": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif",
+        "link": "http://newoperator.wuaze.com/",
+        "website": "http://newoperator.wuaze.com/",
         "github": "",
         "description": "Operador",
         "usage": "PHP & Bootstrap",
@@ -47,8 +47,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
+        "image1": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
@@ -62,8 +62,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-app.gif",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-expo.gif",
+        "image1": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/rca-app.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/rca-expo.gif",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
@@ -77,8 +77,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
+        "image1": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
+        "image2": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
         "link": "https://insta-delivery.vercel.app/",
         "website": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
