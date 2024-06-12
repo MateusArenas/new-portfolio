@@ -34,6 +34,21 @@ export const content = {
       {
         "image1": "./images/rca-site.gif",
         "image2": "./images/rca-site.gif",
+        "link": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif",
+        "website": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif",
+        "github": "",
+        "description": "Operador",
+        "usage": "PHP & Bootstrap",
+        "icon": "fab fa-php",
+        "owner": "mateusarenas",
+        "repo": "",
+        "languageColor": "cyan",
+        "language": "PHP & Bootstrap",
+        "topics": []
+      },
+      {
+        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
+        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
@@ -47,8 +62,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "/images/rca-app.gif",
-        "image2": "/images/rca-expo.gif",
+        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-app.gif",
+        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-expo.gif",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
