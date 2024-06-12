@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['raw.githubusercontent.com', 'raw.githubusercontent.com', 'github.com', 'github.com'],
+    domains: ['mateusarenas.vercel.app','mateusarenas.vercel.app','raw.githubusercontent.com', 'raw.githubusercontent.com', 'github.com', 'github.com'],
   },
 }
 

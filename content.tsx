@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif?raw=true",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif?raw=true",
+        "image1": "https://mateusarenas.vercel.app/images/operator-client.gif?raw=true",
+        "image2": "https://mateusarenas.vercel.app/images/operator-user.gif?raw=true",
         "link": "http://newoperator.wuaze.com/",
         "website": "http://newoperator.wuaze.com/",
         "github": "",
@@ -47,8 +47,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif?raw=true",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-site.gif?raw=true",
+        "image1": "https://mateusarenas.vercel.app/images/rca-site.gif?raw=true",
+        "image2": "https://mateusarenas.vercel.app/images/rca-site.gif?raw=true",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
@@ -62,8 +62,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-app.gif?raw=true",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/rca-expo.gif?raw=true",
+        "image1": "https://mateusarenas.vercel.app/images/rca-app.gif?raw=true",
+        "image2": "https://mateusarenas.vercel.app/images/rca-expo.gif?raw=true",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
@@ -77,8 +77,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif?raw=true",
-        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif?raw=true",
+        "image1": "https://mateusarenas.vercel.app/images/insta-delivery.gif?raw=true",
+        "image2": "https://mateusarenas.vercel.app/images//insta-delivery.gif?raw=true",
         "link": "https://insta-delivery.vercel.app/",
         "website": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
