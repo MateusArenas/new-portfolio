@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "/images/rca-site.gif",
-        "image2": "/images/rca-site.gif",
+        "image1": "./images/rca-site.gif",
+        "image2": "./images/rca-site.gif",
         "link": "https://www.redecredauto.com.br/portal/",
         "website": "https://www.redecredauto.com.br/portal/",
         "github": "",
