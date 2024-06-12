@@ -37,7 +37,7 @@ export async function getServerSideProps() {
 
 const Home: NextPage<{ data?: IProject[], pinneds: any[] }> = ({ pinneds }) => {
 
-  const [showMoreProjects, setShowMoreProjects] = React.useState(false);
+  const [showMoreProjects, setShowMoreProjects] = React.useState(true);
   const [showMoreQualifications, setShowMoreQualifications] = React.useState(true);
 
 
