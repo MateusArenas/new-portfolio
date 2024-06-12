@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "images/operator-client.gif",
-        "image2": "images/operator-user.gif",
+        "image1": "/images/operator-client.gif",
+        "image2": "/images/operator-user.gif",
         "link": "http://newoperator.wuaze.com/",
         "website": "http://newoperator.wuaze.com/",
         "github": "",
@@ -62,8 +62,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://mateusarenas.vercel.app/images/rca-app.gif",
-        "image2": "https://mateusarenas.vercel.app/images/rca-expo.gif",
+        "image1": "/images/rca-app.gif",
+        "image2": "/images/rca-expo.gif",
         "link": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "website": "https://apps.apple.com/us/app/redecredauto/id1552750666",
         "github": "",
@@ -77,8 +77,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "https://mateusarenas.vercel.app/images/insta-delivery.gif",
-        "image2": "https://mateusarenas.vercel.app/images/insta-delivery.gif",
+        "image1": "/images/insta-delivery.gif",
+        "image2": "/images/insta-delivery.gif",
         "link": "https://insta-delivery.vercel.app/",
         "website": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
