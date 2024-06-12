@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif",
-        "image2": "https://raw.githubusercontent.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif",
+        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-client.gif?raw=true",
+        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/operator-user.gif?raw=true",
         "link": "http://newoperator.wuaze.com/",
         "website": "http://newoperator.wuaze.com/",
         "github": "",
