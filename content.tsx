@@ -77,8 +77,8 @@ export const content = {
         "topics": []
       },
       {
-        "image1": "/images/insta-delivery.gif",
-        "image2": "/images/insta-delivery.gif",
+        "image1": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
+        "image2": "https://github.com/MateusArenas/new-portfolio/blob/main/public/images/insta-delivery.gif",
         "link": "https://insta-delivery.vercel.app/",
         "website": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
