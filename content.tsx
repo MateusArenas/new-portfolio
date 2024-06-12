@@ -32,8 +32,8 @@ export const content = {
     "btnmore": { "default": "Veja Mais", "active": "Esconder" },
     "pinneds": [
       {
-        "image1": "https://mateusarenas.vercel.app/images/operator-client.gif",
-        "image2": "https://mateusarenas.vercel.app/images/operator-user.gif",
+        "image1": "images/operator-client.gif",
+        "image2": "images/operator-user.gif",
         "link": "http://newoperator.wuaze.com/",
         "website": "http://newoperator.wuaze.com/",
         "github": "",
