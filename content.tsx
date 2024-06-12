@@ -78,7 +78,7 @@ export const content = {
       },
       {
         "image1": "https://mateusarenas.vercel.app/images/insta-delivery.gif?raw=true",
-        "image2": "https://mateusarenas.vercel.app/images//insta-delivery.gif?raw=true",
+        "image2": "https://mateusarenas.vercel.app/images/insta-delivery.gif?raw=true",
         "link": "https://insta-delivery.vercel.app/",
         "website": "https://insta-delivery.vercel.app/",
         "github": "https://github.com/MateusArenas/insta-delivery",
